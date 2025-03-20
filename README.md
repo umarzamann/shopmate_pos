@@ -1,1 +1,0 @@
-# shopmate_pos
