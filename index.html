@@ -89,6 +89,40 @@
           }
         });
       });
+
+      //server side validation
+      document.getElementById("loginForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let valid = true;
+
+
+        fields.forEach(id => {
+          const input = document.getElementById(id);
+          if (input.value.trim() === "") {
+            input.classList.add("invalid-box");
+            document.getElementById(id + "-error").textContent = "This field is required.";
+            valid = false;
+          }
+        });
+
+        const username = document.getElementById("username").value.trim();
+        const password = document.getElementById("password").value.trim();
+
+        // Username validation
+        if (username && username.length < 4) {
+          document.getElementById("username-error").textContent = "Username must be at least 4 characters";
+          document.getElementById("username").classList.add("invalid-box");
+          valid = false;
+        }
+
+        // Password validation
+        if (password && password.length < 6) {
+          document.getElementById("password-error").textContent = "Password must be at least 6 characters.";
+          document.getElementById("password").classList.add("invalid-box");
+          valid = false;
+        }
+
         if (!valid) return;
 
         // Success
