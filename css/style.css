@@ -1,104 +1,77 @@
-body {
-    /* background: linear-gradient(rgba(13, 27, 42, 0.9), rgba(27, 38, 59, 0.9)), url('../img/bg.jpg') !important;
-    background-size: cover !important; */
-
-    font-family: 'Poppins', sans-serif;
-    color: #C9A227;
+:root {
+    --theme-color: #C9A227; /* Default theme color */
+    --background-color: #000; /* Default background color for sidebar */
 }
 
+* {
+    transition: all 0.3s ease-in-out;
+}
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--theme-color);
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.sidebar {
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for sidebar */
+}
+
+.top-bar {
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for top bar */
+}
+
+
+
 .bg-img {
-    background: linear-gradient(rgba(13, 27, 42, 0.9), rgba(27, 38, 59, 0.9)), url('../img/bg.jpg') !important;
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(25, 25, 25, 0.9)), url('../img/bg.jpg') !important;
     background-size: cover !important;
 }
 /* *****************************   DARK/LIGHT MODE STARTS  ****************************************** */
 /* Light Theme (Default) */
-:root {
-    --bg-color: #ffffff;
-    --text-color: #000000;
-    --sidebar-bg: #000000;
-    --sidebar-text: #C9A227;
-    --topbar-bg: #ffc107;
-    --topbar-text: #000000;
-    --btn-bg: #C9A227;
-    --btn-hover-bg: #A67C00;
-    --modal-bg: #ffffff;
-    --dropdown-bg: #000000;
-    --dropdown-text: #C9A227;
-    --dropdown-hover-bg: #A67C00;
+
+
+/* Theme-specific: Dark Mode */
+body.dark-mode {
+    background: linear-gradient(rgba(13, 27, 42, 0.9), rgba(27, 38, 59, 0.9)), url('../img/bg.jpg') !important;
+    background-size: cover !important;
+    color: #C9A227;
+}
+.dark-mode .bg-img {
+    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(25, 25, 25, 0.9)), url('../img/bg.jpg') !important;
 }
 
-/* Dark Theme */
-.dark-theme {
-    --bg-color: #121212;
-    --text-color: #ffffff;
-    --sidebar-bg: #1a1a1a;
-    --sidebar-text: #ffcc00;
-    --topbar-bg: #333333;
-    --topbar-text: #ffffff;
-    --btn-bg: #444444;
-    --btn-hover-bg: #555555;
-    --modal-bg: #222222;
-    --dropdown-bg: #1a1a1a;
-    --dropdown-text: #ffcc00;
-    --dropdown-hover-bg: #555555;
+/* Theme-specific: Light Mode */
+
+.light-mode .bg-img {
+    background:linear-gradient(rgba(255, 255, 255, 0.9), rgba(250, 250, 250, 0.7)), url('../img/light-bg.png') !important;
+    background-size: cover !important;
+}
+.light-mode .sidebar {
+    background: #f8f9fa !important;
+    color: #C9A227;
+}
+.light-mode .dropdown-menu {
+    background: #fff !important;
+}
+.light-mode .dropdown-item {
+    color: #C9A227;
+}
+.light-mode .dropdown-item:hover {
+    background: #e2e6ea !important;
+    color: #C9A227;
+}
+.light-mode .top-bar {
+    background-color: #e2e6ea !important;
+    color: #C9A227;
+}
+.light-mode .dropdown-toggle {
+    color: #C9A227;
 }
 
-/* Apply variables */
-body {
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background 0.3s, color 0.3s;
-}
-
-/* Sidebar */
-.sidebar {
-    background-color: var(--sidebar-bg);
-    color: var(--sidebar-text);
-}
-
-/* Top Bar */
-.top-bar {
-    background-color: var(--topbar-bg) !important;
-    color: var(--topbar-text) !important;
-}
-
-/* Buttons */
-.btn-gold {
-    background-color: var(--btn-bg);
-    color: #ffffff;
-}
-
-.btn-gold:hover {
-    background-color: var(--btn-hover-bg);
-}
-
-/* Dropdown Menu */
-.dropdown-menu {
-    background-color: var(--dropdown-bg) !important;
-    border-color: var(--dropdown-bg) !important;
-}
-
-.dropdown-item {
-    color: var(--dropdown-text) !important;
-}
-
-.dropdown-item:hover {
-    background-color: var(--dropdown-hover-bg) !important;
-}
-
-/* Modals */
-.modal-content {
-    background: var(--modal-bg);
-    color: var(--text-color);
-}
-
-/* Theme Toggle Button */
-#theme-toggle {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    font-size: 24px;
-    color: var(--text-color);
+.light-mode .golden-shadow {
+    box-shadow: 0px 0px 15px rgba(201, 162, 39, 0.4) !important;
 }
 
 /* *****************************   DARK/LIGHT MODE ENDS  ****************************************** */
@@ -127,12 +100,16 @@ body {
     backdrop-filter: blur(10px);
 }
 .btn-gold {
-    background: #C9A227;
+    background: var(--theme-color);
 }
 .btn-gold:hover {
     background: #A67C00;
 }
 
+/* top-bar dynamic override */
+.top-bar h1 {
+    color: var(--theme-color);
+}
 /* *****************************   LOGIN PAGE ENDS HERE  ****************************************** 
 ************************************************************************************************* */
 
@@ -152,19 +129,14 @@ body {
 }  */
 
 .dropdown-item {
-    color: #C9A227 !important; /* Golden text */
+    color: var(--theme-color) !important;
     text-align: center; /* Center text */
     padding: 10px !important;
 }
 .dropdown-item:hover {
-    background: #A67C00 !important; /* Highlight effect */
+    background: var(--theme-color) !important;
     color: #fff !important; /* White text on hover */
 }
-
-/* .card {
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(201, 162, 39, 0.4);
-} */
 
 /* *****************************   DASHBOARD PAGE ENDS HERE  **************************************** 
 ************************************************************************************************** */
@@ -172,32 +144,35 @@ body {
 
 
 
-/* *****************************   MODAL STYLING **************************************** 
+/* *****************************   MODAL STYLING FOR NAVBAR**************************************** 
 ************************************************************************************************** */
-.modal {
+.my-modal {
     display: none;
     position: fixed;
     z-index: 1050;
     left: 0;
     top: 0;
     height: 100%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
 }
-.modal-content {
+.my-modal-content {
     background: white;
     width: 600px;
     max-width: 100%;
     border-radius: 10px;
     text-align: center;
 }
-.close {
+.my-close {
     cursor: pointer;
     color: red;
-    font-size: 20px;
+    font-size: 30px;
     font-weight: bold;
 }
 
 /* *****************************   MODAL STYLING ends **************************************** 
 ************************************************************************************************** */
+
+
