@@ -13,3 +13,7 @@ window.onclick = function(event) {
         closeModal();
     }
 }
+
+
+//Dark Mode
+
