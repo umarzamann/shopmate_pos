@@ -11,6 +11,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--theme-color);
+    
     transition: background-color 0.3s, color 0.3s; /* Smooth transition */
 }
 
@@ -106,18 +107,13 @@ body.dark-mode {
     background: #A67C00;
 }
 
-/* top-bar dynamic override */
-.top-bar h1 {
-    color: var(--theme-color);
-}
+
 /* *****************************   LOGIN PAGE ENDS HERE  ****************************************** 
 ************************************************************************************************* */
 
 
 /* *****************************   DASHBOARD PAGE STARTS HERE  ***************************************** */
-.content {
-    background: none !important;
-}
+
 
 .dropdown-arrow-right::after {
     transform: rotate(-90deg);  /* Default: Right arrow */
@@ -126,11 +122,11 @@ body.dark-mode {
  /* When sidebar dropdown is open, rotate arrow downwards 
 .dropdown-arrow-right[aria-expanded="true"]::after {
     transform: rotate(0deg);
-}  */
+} */
 
 .dropdown-item {
     color: var(--theme-color) !important;
-    text-align: center; /* Center text */
+    text-align: center; 
     padding: 10px !important;
 }
 .dropdown-item:hover {
@@ -143,6 +139,7 @@ body.dark-mode {
 }
 
 .card:hover {
+    color: var(--theme-color) !important;
     transform: scale(1.05);
     transition: transform 0.3s ease-in-out;
 }
@@ -183,4 +180,13 @@ body.dark-mode {
 /* *****************************   MODAL STYLING ends **************************************** 
 ************************************************************************************************** */
 
-
+.table-warning {
+    background-color: #A67C00 !important;
+    color: #000 !important;
+  }
+  
+  .table-warning > th,
+  .table-warning > td {
+    background-color: #A67C00 !important;
+    color: #000 !important;
+  }
