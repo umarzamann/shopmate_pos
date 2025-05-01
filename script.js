@@ -45,6 +45,12 @@ window.onclick = function(event) {
             document.body.style.color = (selectedColor === "#000000") ? "#FFFFFF" : "#000000"; // Change text color based on background
         });
     });
+
+
+// ***************    DASHBOARD JS starts ********************
+   
+// ***************    DASHBOARD JS ends ********************
+
     
 
 
