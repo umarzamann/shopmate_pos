@@ -1,15 +1,17 @@
+<?php include('modals.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POS Dashboard - Crockery Store</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Bootstrap Icons -->
+    <title>POS Dashboard - ShopMate</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 
-    <!-- Include jQuery -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <link rel="stylesheet" href="CSS/style.css">
 
@@ -33,48 +35,12 @@
                 </ul>
             </li>
 
-                <!-- Navbar Modal -->
-                <div id="customModal" class="my-modal">
-                    <div class="my-modal-content">
-                      <span class="my-close" onclick="closeModal()">&times;</span>
-                      <p id="modal-text">umar zaman</p>
-                    </div>
-                  </div>
-    
-    <!-- Bootstrap Modal for Inventory -->
-    <div class="modal fade" id="inventoryModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-          <div class="modal-content">
-            
-            <div class="modal-header">
-              <h5 class="modal-title text-black  text-center w-100" id="exampleModalLabel">Inventory</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-      
-            <div class="modal-body">
-      
-              <!-- Action Buttons -->
-              <div class="d-flex flex-column gap-2 mb-4">
-                <button class="btn btn-success flex-fill">Add Item</button>
-                <button class="btn btn-primary flex-fill">Update Item</button>
-              </div>
-      
-              <!-- Inventory Summary -->
-              <h6 class="text-success">Items in Inventory: <span class="badge bg-secondary">42</span></h6>
-              <hr>      
-            </div>
-      
-          </div>
-        </div>
-      </div>
-      
-
             <li class="dropdown p-2">
-                <a class="dropdown-arrow-right dropdown-toggle text-warning text-decoration-none" href="#" data-bs-toggle="dropdown">Add User</a>
+                <a class="dropdown-arrow-right dropdown-toggle text-warning text-decoration-none" href="#" data-bs-toggle="dropdown">Manage Users</a>
                 <ul class="dropdown-menu bg-black golden-shadow border-0">
-                    <li><a class="dropdown-item text-warning" href="#">Add New User</a></li>
-                    <li><a class="dropdown-item text-warning" href="#">User Details</a></li>
-                    <li><a class="dropdown-item text-warning" href="#">Block/Unblock User</a></li>
+                    <li><a class="dropdown-item text-warning" href="#" data-bs-toggle="modal" data-bs-target="#staticBackdrop" >Add New User</a></li>
+                    <li><a class="dropdown-item text-warning" href="#" data-bs-toggle="modal" data-bs-target="#userTableModal" >View User Details</a></li>
+                    <li><a class="dropdown-item text-warning" href="#" data-bs-toggle="modal" data-bs-target="#blockUserTableModal">Remove User</a></li>
                 </ul>
             </li>
     
@@ -168,36 +134,57 @@
             </div>
         
         </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="script.js"></script>
 
     <script>
-        $(document).ready(function(){
-            // Open modal when clicking on Inventory card
-            $('#inventoryCard').click(function() {
-                $('#inventoryModal').modal('show');
-            });
-        
-            
-            $('#userProfile').click(function() {
-                alert("User Profile Clicked");
-            });
-        
-            $('#supplierCard').click(function() {
-                alert("Supplier Clicked");
-            });
-        
-            $('#posCard').click(function() {
-                alert("POS Clicked");
-            });
-        
-            $('#reportsCard').click(function() {
-                alert("Reports Clicked");
-            });
+            $(document).ready(function(){
+        // Open modal when clicking on Inventory card
+        $('#inventoryCard').click(function() {
+            $('#inventoryModal').modal('show');
         });
-        </script>
+    
+        
+        $('#userProfile').click(function() {
+            alert("User Profile Clicked");
+        });
+    
+        $('#supplierCard').click(function() {
+            alert("Supplier Clicked");
+        });
+    
+        $('#posCard').click(function() {
+            alert("POS Clicked");
+        });
+    
+        $('#reportsCard').click(function() {
+            alert("Reports Clicked");
+        });
+      });
 
+      //showing user added message via AJAX
+        $(document).ready(function () {
+        $("#signupForm").submit(function (e) {
+          e.preventDefault(); 
 
-
-</body>
+          $.ajax({
+            url: "save_user.php",
+            type: "POST",
+            data: $(this).serialize(),
+            success: function (response) {
+              $("#staticBackdrop").modal("hide"); // hide signup modal
+              $("#responseMessage").text(response); // set message text
+              $("#responseModal").modal("show"); // show the response modal
+            },
+            error: function () {
+              $("#staticBackdrop").modal("hide");
+              $("#responseMessage").text("Something went wrong.");
+              $("#responseModal").modal("show");
+            }
+          });
+        });
+      }); 
+    </script>
+      </body>
 </html>

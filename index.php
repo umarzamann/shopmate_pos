@@ -1,15 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ShopMate - Sign In</title>
-    <link rel="shortcut icon" href="img/logo.png" type="image/x-icon">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="CSS/style.css">
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ShopMate - Sign In</title>
+  <link rel="shortcut icon" href="img/logo.png" type="image/x-icon"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link rel="stylesheet" href="CSS/style.css"/>
+
+  <style>
     .valid-box {
       border: 4px solid rgb(16, 128, 16) !important;
     }
@@ -30,48 +29,45 @@
       padding: 10px;     
     }
   </style>
-   
 </head>
-<body class="d-flex align-items-center justify-content-center  bg-img vh-100">
-   
-    
-    <div class="container text-center">
-        
+<body class="d-flex align-items-center justify-content-center bg-img vh-100">
 
-
-        <div class="mb-4">
-            <img src="img/logo.png" alt="POS Logo" class="img-fluid rounded-circle golden-shadow animate-logo" style="width: 150px;">
-            <h1 class="mt-2">Where Transactions Meet Innovation</h1>
-        </div>
-        <h1 class="border border-warning d-inline-block px-3 rounded golden-shadow text-uppercase ">ShopMate POS System</h1>
-        <div class="row justify-content-center">
-            <div class="col-md-6  golden-shadow bg-blur-10 p-4 rounded-3  bg-dark bg-opacity-50">
-                <img src="img/logo.png" alt="POS Logo" class="img-fluid rounded-circle mb-3" style="width: 120px;">
-                <h2>Login</h2>
-                <form id="loginForm">
-				  <select id="role" class="form-select mb-1">
-					<option value="">---Select---</option>
-					<option value="admin">Admin</option>
-					<option value="receptionist">Receptionist</option>
-				  </select>
-				  <div id="role-error" class="error-msg"></div>
-				
-				  <input type="text" id="username" class="form-control mb-1" placeholder="Username">
-				  <div id="username-error" class="error-msg"></div>
-				
-				  <input type="password" id="password" class="form-control mb-1" placeholder="Password">
-				  <div id="password-error" class="error-msg"></div>
-				
-				  <button type="submit" class="btn btn-gold fw-bold text-black">Login</button>
-				</form>
-            </div>
-        </div>
+  <div class="container text-center">
+    <div class="mb-4">
+      <img src="img/logo.png" alt="POS Logo" class="img-fluid rounded-circle golden-shadow animate-logo" style="width: 150px;">
+      <h1 class="mt-2">Where Transactions Meet Innovation</h1>
     </div>
-    
-    <!-- JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-	
-	<script>
+    <h1 class="border border-warning d-inline-block px-3 rounded golden-shadow text-uppercase">ShopMate POS System</h1>
+    <div class="row justify-content-center">
+      <div class="col-md-6 golden-shadow bg-blur-10 p-4 rounded-3 bg-dark bg-opacity-50">
+        <img src="img/logo.png" alt="POS Logo" class="img-fluid rounded-circle mb-3" style="width: 120px;">
+        <h2>Login</h2>
+
+        <form id="loginForm">
+          <select id="role" class="form-select mb-1">
+            <option value="">---Select---</option>
+            <option value="admin">Admin</option>
+            <option value="receptionist">Receptionist</option>
+          </select>
+          <div id="role-error" class="error-msg"></div>
+        
+          <input type="text" id="username" class="form-control mb-1" placeholder="Username">
+          <div id="username-error" class="error-msg"></div>
+        
+          <input type="password" id="password" class="form-control mb-1" placeholder="Password">
+          <div id="password-error" class="error-msg"></div>
+        
+          <button type="submit" class="btn btn-gold fw-bold text-black">Login</button>
+        </form>
+        
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
     //client side validation
      const fields = ["role", "username", "password"];
 
@@ -106,7 +102,7 @@
           }
         });
 
-        const username = document.getElementById("username").value.trim();
+        const username = document.getElementById("username").value.replaceAll(' ', '').trim();
         const password = document.getElementById("password").value.trim();
 
         // Username validation
@@ -128,5 +124,9 @@
         // Success
         window.location.href = "dashboard.html";
       });
+
+
+
+  </script>
 </body>
 </html>
