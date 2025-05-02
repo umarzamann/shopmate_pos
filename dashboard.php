@@ -1,4 +1,13 @@
-<?php include('modals/modals.php'); ?>
+<?php 
+
+include('modals/modals.php');
+include('modals/modal_add_user.php');
+include('modals/modal_view_user.php');
+include('modals/modal_delete_user.php');
+include('modals/modal_message.php');
+include('modals/modal_inventory_card.php');
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
