@@ -1,13 +1,4 @@
-<?php 
-
-include('modals/modals.php');
-include('modals/modal_add_user.php');
-include('modals/modal_view_user.php');
-include('modals/modal_delete_user.php');
-include('modals/modal_message.php');
-include('modals/modal_inventory_card.php');
-?>
-
+<?php include('modals.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -145,7 +136,7 @@ include('modals/modal_inventory_card.php');
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="js/script.js"></script>
+        <script src="script.js"></script>
 
     <script>
             $(document).ready(function(){
@@ -178,7 +169,7 @@ include('modals/modal_inventory_card.php');
           e.preventDefault(); 
 
           $.ajax({
-            url: "includes/save_user.php",
+            url: "save_user.php",
             type: "POST",
             data: $(this).serialize(),
             success: function (response) {

@@ -13,12 +13,9 @@ $result = mysqli_query($conn, $sql) or die("Query Unsuccessful");
 
 if ($result) {
     echo "Signup successful!";  
-    // header("Location: http://localhost/shopmate_pos_test/dashboard.php");
-    exit;
 } else {
     echo "Error: " . mysqli_error($conn); 
 }
-
 
 mysqli_close($conn);
 
