@@ -1,4 +1,4 @@
-<?php include('modals.php'); ?>
+<?php include('modals/modals.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,7 +136,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="script.js"></script>
+        <script src="js/script.js"></script>
 
     <script>
             $(document).ready(function(){
@@ -169,7 +169,7 @@
           e.preventDefault(); 
 
           $.ajax({
-            url: "save_user.php",
+            url: "includes/save_user.php",
             type: "POST",
             data: $(this).serialize(),
             success: function (response) {

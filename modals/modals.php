@@ -126,7 +126,7 @@
                     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                       <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
-                          <form id="signupForm" action="save_user.php" method="POST">
+                          <form id="signupForm" action="../includes/save_user.php" method="POST">
                             <div class="modal-header">
                               <h1 class="modal-title fs-5 text-black" id="staticBackdropLabel">Add new user</h1>
                               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -202,7 +202,7 @@
       <div class="modal-body">
         <!-- Table to display data -->
          <?php 
-         include('db.php');
+         include('../includes/db.php');
 
          $sql = "SELECT * FROM users";
          $result = mysqli_query($conn, $sql) or die("Query Unsuccessful");
@@ -258,7 +258,7 @@
       <div class="modal-body">
         <!-- Table to display data -->
          <?php 
-         include('db.php');
+         include('../includes/db.php');
 
          $sql = "SELECT * FROM users";
          $result = mysqli_query($conn, $sql) or die("Query Unsuccessful");
@@ -288,7 +288,7 @@
               <td><?php echo $row['u_role'] ?></td>
 
               <td>
-                    <a class="btn btn-info" href='delete_user.php?id=<?php echo $row['uid']; ?>'>Delete</a>
+                    <a class="btn btn-info" href='../includes/delete_user.php?id=<?php echo $row['uid']; ?>'>Delete</a>
                 </td>
             </tr>
             <?php } ?>
