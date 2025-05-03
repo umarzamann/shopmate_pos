@@ -17,12 +17,12 @@ include('modals/modal_message.php');
 
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
 
 </head>
@@ -34,9 +34,10 @@ include('modals/modal_message.php');
         </div> 
         
         <ul class="list-unstyled pt-4">
-            <li class="p-2">Dashboard</li>
+            <li class="p-2 "><a class="text-decoration-none text-warning" href="#">Dashboard</a></li>
             <li class="dropdown p-2">
-                <a class="dropdown-arrow-right dropdown-toggle text-warning text-decoration-none" href="#" data-bs-toggle="dropdown">Admin Panel</a>
+                <a class="dropdown-arrow-right dropdown-toggle text-warning text-decoration-none" href="#" data-bs-toggle="dropdown">
+                     Admin Panel</a>
                 <ul class="dropdown-menu bg-black golden-shadow border-0">
                     <li><a class="dropdown-item text-warning" href="#" onclick="openModal('View Sales Reports')">View Sales Reports</a></li>
                     <li><a class="dropdown-item text-warning" href="#" onclick="openModal('Set Product Prices')">Set Product Prices</a></li>
@@ -68,17 +69,16 @@ include('modals/modal_message.php');
         <div class="top-bar bg-warning text-dark p-3 d-flex justify-content-between align-items-center">
             <h1>Dashboard Page</h1>
 
-            <div class="d-flex align-items-center gap-3">
-                <button id="themeToggle" class="btn btn-outline-dark">☀️</button>
-                <label for="colorPicker">Pick Background Color:</label>
-                <input type="color" id="colorPicker" value="#000000">
-            </div> 
+            <button id="themeToggleBtn" class="btn border-0 bg-transparent">
+                 <i class="bi bi-sun-fill fs-4" id="themeIcon"></i>
+            </button>
+
                 <div class="dropdown">
                     <a class="d-flex align-items-center text-decoration-none dropdown-toggle text-dark " href="#" id="accountDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">                          
                         <img src="img/logo.png" alt="User" class="rounded-circle me-2" width="40" height="40">                    
                         <div class="d-flex flex-column lh-sm">
-                            <span class="fw-bold text-black ">Umar</span>
-                            <span class="d-block text-muted small">Admin</span>
+                            <span id="userName" class="fw-bold text-black">Umar</span>
+                            <span id="userRole" class="d-block text-muted small ">Admin</span>
                         </div>
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end bg-black golden-shadow border-0" aria-labelledby="accountDropdown">

@@ -1,0 +1,140 @@
+    * {
+        transition: all 0.4s ease-in-out;
+    }
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: #C9A227;
+    }
+
+    .bg-img {
+        background: linear-gradient(rgba(34, 34, 34, 0.9), rgba(24, 22, 22, 0.9)), url('../img/bg.jpg') !important;
+        background-size: cover !important;
+    }
+
+    /* *****************************   LOGIN PAGE STARTS HERE  ****************************************** */
+    .animate-logo {
+        animation: fadeRight 1.5s ease-in-out;
+
+    }
+
+    @keyframes fadeRight {
+        from {
+            opacity: 0;
+            transform: translateY(-150px) rotate(-90deg);
+        }
+        to {
+            opacity: 0.9;
+            transform: translateY(0) rotate(0deg);       
+        }
+    }
+    .golden-shadow {
+        box-shadow: 0px 0px 15px rgba(201, 162, 39, 0.4);
+    }
+    .bg-blur-10 {
+        backdrop-filter: blur(10px);
+    }
+    .btn-gold {
+        background: #C9A227;
+    }
+    .btn-gold:hover {
+        background: #A67C00;
+    }
+
+    /* *****************************   LOGIN PAGE ENDS HERE  ****************************************** 
+    ************************************************************************************************* */
+
+
+    /* *****************************   DASHBOARD PAGE STARTS HERE  ***************************************** */
+    .content {
+        background: none !important;
+    }
+
+    .dropdown-arrow-right::after {
+        transform: rotate(-90deg);  /* Default: Right arrow */
+    }
+
+    .dropdown-item {
+        color: #C9A227 !important; /* Golden text */
+        text-align: center; /* Center text */
+        padding: 10px !important;
+    }
+    .dropdown-item:hover {
+        background: #A67C00 !important; /* Highlight effect */
+        color: #fff !important; /* White text on hover */
+    }
+
+    .card:hover {
+        color: #A67C00;
+        transform: scale(1.04);
+        transition:  transform 0.3s ease;
+        cursor: pointer;
+    }
+ 
+/* *****************************   DASHBOARD PAGE ENDS HERE  **************************************** 
+************************************************************************************************** */
+
+
+
+
+/* LIGHT THEME */
+body.light-theme {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+body.light-theme .sidebar {
+    background-color: #ffffff !important;
+    color: #343a40 !important;
+    border-right: 1px solid #dee2e6;
+}
+
+body.light-theme .sidebar a,
+body.light-theme .dropdown-menu .dropdown-item {
+    color: #C9A227 !important;
+}
+
+body.light-theme .dropdown-menu {
+    background-color: #ffffff !important;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+body.light-theme .top-bar {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border-bottom: 1px solid #dee2e6;
+}
+.light-theme .top-bar span {
+    color: white !important;
+}
+body.light-theme #themeIcon {
+    color: white;
+}
+
+body.light-theme .card {
+    background-color: #ffffff !important;
+    color: #343a40;
+    border: 1px solid #dee2e6;
+}
+body.light-theme .card:hover {
+    color: #A67C00;
+    transform: scale(1.04);
+    transition:  transform 0.3s ease;  
+    cursor: pointer; 
+}
+
+body.light-theme .dropdown-menu .dropdown-item:hover {
+    background-color: #C9A227 !important;
+    color: #fff !important;
+}
+
+body.light-theme .bg-img {
+    background: linear-gradient(rgba(187, 185, 185, 0.9), rgba(223, 223, 223, 0.9)), url('../img/bg.jpg') !important;
+    background-size: cover !important;
+    background-color: #f8f9fa !important;
+}
+/* Theme Toggle Icon Styling */
+#themeToggleBtn:hover #themeIcon {
+    transform: rotate(20deg);
+    transition: transform 0.3s ease;
+}
+

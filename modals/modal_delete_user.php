@@ -39,7 +39,7 @@ $result = mysqli_query($conn, $sql) or die("Query Unsuccessful");
               <td><?php echo $row['type_name'] ?></td>
 
               <td>
-                    <a class="btn btn-danger" href='__DIR__ . /../includes/delete_user.php?id=<?= $row['uid']; ?>'>Delete</a>
+                    <a class="btn btn-danger" href='__DIR__ . /../delete_user.php?id=<?= $row['uid']; ?>'>Delete</a>
                 </td>
             </tr>
             <?php } ?>

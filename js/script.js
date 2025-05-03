@@ -17,40 +17,27 @@ window.onclick = function(event) {
 }
 
 
-    //Dark mode theme + color picker
+    //Dark mode theme + 
     document.addEventListener("DOMContentLoaded", function () {
         const body = document.body;
-        const sidebar = document.querySelector('.sidebar'); // Select the sidebar
-        const topBar = document.querySelector('.top-bar'); // Select the top bar
-        const toggle = document.getElementById("themeToggle");
-        const colorPicker = document.getElementById("colorPicker");
+        const themeToggleBtn = document.getElementById("themeToggleBtn");
+        const themeIcon = document.getElementById("themeIcon");
+        const userName = document.getElementById("userName");
+        const userRole = document.getElementById("userRole");
     
-        // Default mode
-        body.classList.add("dark-mode");
+        // Toggle theme on icon click
+        themeToggleBtn.addEventListener("click", () => {
+            body.classList.toggle("light-theme");
     
-        toggle.addEventListener("click", () => {
-            body.classList.toggle("dark-mode");
-            body.classList.toggle("light-mode");
-    
-            // Change icon or text if you like
-            toggle.innerHTML = body.classList.contains("light-mode") ? '🌙' : '☀️';
+            if (body.classList.contains("light-theme")) {
+                themeIcon.classList.replace("bi-sun-fill", "bi-moon-fill");
+                
+               
+            } else {
+                themeIcon.classList.replace("bi-moon-fill", "bi-sun-fill");
+               
+            }
         });
     
-        colorPicker.addEventListener("input", function() {
-            const selectedColor = this.value; // Get the selected color value
-            body.style.backgroundColor = selectedColor; // Set body background color
-            sidebar.style.backgroundColor = selectedColor; // Set sidebar background color
-            topBar.style.backgroundColor = selectedColor; // Set top bar background color
-            // Optionally change text color based on background color
-            document.body.style.color = (selectedColor === "#000000") ? "#FFFFFF" : "#000000"; // Change text color based on background
-        });
+
     });
-
-
-// ***************    DASHBOARD JS starts ********************
-   
-// ***************    DASHBOARD JS ends ********************
-
-    
-
-
