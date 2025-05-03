@@ -2,7 +2,7 @@
 
 $user_id = $_GET['id'];
 
-include 'db.php';
+include(__DIR__ . '/../includes/db.php');
 
 $sql = "DELETE FROM users WHERE uid = {$user_id}";
 $result = mysqli_query($conn, $sql) or die("Query Unsuccessful.");

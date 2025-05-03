@@ -1,4 +1,12 @@
-<?php include('modals.php'); ?>
+<?php 
+include('modals/modal_dummy.php'); 
+include('modals/modal_add_user.php'); 
+include('modals/modal_view_user.php'); 
+include('modals/modal_delete_user.php'); 
+include('modals/modal_inventory_card.php'); 
+include('modals/modal_message.php'); 
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,7 +144,7 @@
         </div>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="script.js"></script>
+        <script src="js/script.js"></script>
 
     <script>
             $(document).ready(function(){
