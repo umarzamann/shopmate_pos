@@ -9,7 +9,7 @@ $result = mysqli_query($conn, $sql) or die("Query Unsuccessful.");
 
 // echo "User Deleted";
 
-header("Location: http://localhost/shopmate_pos_test/dashboard.php");
+header("Location: http://localhost/shopmate_pos/dashboard.php");
 
 mysqli_close($conn);
 
