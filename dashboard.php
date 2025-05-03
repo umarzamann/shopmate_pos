@@ -5,6 +5,7 @@ include('modals/modal_view_user.php');
 include('modals/modal_delete_user.php'); 
 include('modals/modal_inventory_card.php'); 
 include('modals/modal_message.php'); 
+// include('modals.php');
 
 ?>
 <!DOCTYPE html>
