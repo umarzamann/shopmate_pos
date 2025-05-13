@@ -9,6 +9,8 @@
     .bg-img {
         background: linear-gradient(rgba(34, 34, 34, 0.9), rgba(24, 22, 22, 0.9)), url('../img/bg.jpg') !important;
         background-size: cover !important;
+        /* background-color: #f5f5f5; */
+
     }
 
     /* *****************************   LOGIN PAGE STARTS HERE  ****************************************** */
@@ -63,7 +65,7 @@
         color: #fff !important; /* White text on hover */
     }
 
-    .card:hover {
+    .custom-card:hover {
         color: #A67C00;
         transform: scale(1.04);
         transition:  transform 0.3s ease;
@@ -71,6 +73,30 @@
     }
  
 /* *****************************   DASHBOARD PAGE ENDS HERE  **************************************** 
+************************************************************************************************** */
+
+
+ 
+/* *****************************   SIDEBAR PAGE STARTS HERE  **************************************** 
+************************************************************************************************** */
+
+.hover-bg-light:hover {
+    background-color: #f8f9fa;
+    color: black !important;
+    text-decoration: none;
+}
+
+.hover-nav-light:hover {
+    background-color: #f8f9fa !important;
+    color: #74590b !important;
+    text-decoration: none;
+}
+.hover-nav-light:active {
+    transform: scale(1.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* *****************************   SIDEBAR PAGE ENDS HERE  **************************************** 
 ************************************************************************************************** */
 
 
@@ -101,7 +127,7 @@ body.light-theme .dropdown-menu {
 body.light-theme .top-bar {
     background-color: #000000 !important;
     color: #ffffff !important;
-    border-bottom: 1px solid #dee2e6;
+    box-shadow: 0px 15px 15px rgba(0, 0, 0, 0.3);
 }
 .light-theme .top-bar span {
     color: white !important;
@@ -138,3 +164,29 @@ body.light-theme .bg-img {
     transition: transform 0.3s ease;
 }
 
+
+/* Toast Text Display */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #444;
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 1000;
+}
+
+.toast.show {
+    opacity: 1;
+}
+
+
+/* button style */
+
+.btn-scale:active {
+transform: scale(1.2);
+transition: transform 0.3s ease-in-out;
+}

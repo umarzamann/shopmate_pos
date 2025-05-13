@@ -47,7 +47,8 @@
           <select id="role" class="form-select mb-1">
             <option value="">---Select---</option>
             <option value="admin">Admin</option>
-            <option value="receptionist">Receptionist</option>
+            <option value="receptionist">Manager</option>
+            <option value="receptionist">Sales Man</option>
           </select>
           <div id="role-error" class="error-msg"></div>
         
@@ -57,7 +58,7 @@
           <input type="password" id="password" class="form-control mb-1" placeholder="Password">
           <div id="password-error" class="error-msg"></div>
         
-          <button type="submit" class="btn btn-gold fw-bold text-black">Login</button>
+          <button type="submit" class="btn btn-gold fw-bold btn-scale text-black">Login</button>
         </form>
         
       </div>
@@ -122,7 +123,7 @@
         if (!valid) return;
 
         // Success
-        window.location.href = "dashboard.html";
+        window.location.href = "dashboard.php";
       });
 
 
