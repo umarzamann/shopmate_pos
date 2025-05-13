@@ -9,25 +9,17 @@
   <link rel="stylesheet" href="css/style.css"/>
 
   <style>
-    .valid-box {
-      border: 4px solid rgb(16, 128, 16) !important;
-    }
-    .invalid-box {
-      border: 4px solid red !important;
-    }
+  input:valid {
+    border: 2px solid green;
+  }
+      
+  input:invalid {
+    border: 2px solid red;
+  }
+    input:focus {
+    outline: none;
+  }
 
-
-    .error-msg {
-      color: red;
-      font-size: 0.9em;
-      min-height: 20px;      
-      line-height: 1.2;      
-      margin: 0;             
-    }
-    input, select {
-      margin-bottom: 4px;  
-      padding: 10px;     
-    }
   </style>
 </head>
 <body class="d-flex align-items-center justify-content-center bg-img vh-100">
@@ -38,96 +30,53 @@
       <h1 class="mt-2">Where Transactions Meet Innovation</h1>
     </div>
     <h1 class="border border-warning d-inline-block px-3 rounded golden-shadow text-uppercase">ShopMate POS System</h1>
-    <div class="row justify-content-center">
-      <div class="col-md-6 golden-shadow bg-blur-10 p-4 rounded-3 bg-dark bg-opacity-50">
-        <img src="img/logo.png" alt="POS Logo" class="img-fluid rounded-circle mb-3" style="width: 120px;">
-        <h2>Login</h2>
+      <div class="row justify-content-center">
+        <div class="col-md-6 golden-shadow bg-blur-10 p-4 rounded-3 bg-dark bg-opacity-50">
+          <img src="img/logo.png" alt="POS Logo" class="img-fluid rounded-circle mb-3" style="width: 120px;">
+          <h2>Login</h2>
 
-        <form id="loginForm">
-          <select id="role" class="form-select mb-1">
-            <option value="">---Select---</option>
-            <option value="admin">Admin</option>
-            <option value="receptionist">Manager</option>
-            <option value="receptionist">Sales Man</option>
-          </select>
-          <div id="role-error" class="error-msg"></div>
-        
-          <input type="text" id="username" class="form-control mb-1" placeholder="Username">
-          <div id="username-error" class="error-msg"></div>
-        
-          <input type="password" id="password" class="form-control mb-1" placeholder="Password">
-          <div id="password-error" class="error-msg"></div>
-        
-          <button type="submit" class="btn btn-gold fw-bold btn-scale text-black">Login</button>
-        </form>
-        
+          <form id="loginForm">
+            <select id="role" class="form-select mb-3" required>
+              <option value="" disabled selected>---Select---</option>
+
+              <?php
+
+                include('includes/db.php');
+
+                $sql = "SELECT * FROM user_type";
+                $result = mysqli_query($conn, $sql) or die("Query failed");
+                
+                if(mysqli_num_rows($result) > 0) {
+                  while($rows = mysqli_fetch_assoc($result)) {
+                    echo "<option value='{$rows['type_name']}'>{$rows['type_name']}</option>";        
+                  }
+                }
+            ?>
+              </select>
+
+            <input type="text" class="form-control mb-3" 
+                   id="username" name="username"  
+                   placeholder="Username" required>
+
+            <input type="password" class="form-control mb-3" 
+                   id="password" name="password"  
+                   placeholder="Password" required>
+            
+            <button type="submit" class="btn btn-gold fw-bold btn-scale text-black">Login</button>
+          </form>
+          
+        </div>
       </div>
-    </div>
   </div>
 
   <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-  <script>
-    //client side validation
-     const fields = ["role", "username", "password"];
-
-      fields.forEach(id => {
-        const input = document.getElementById(id);
-        input.addEventListener("input", () => {
-          if (input.value.trim() === "") {
-            input.classList.remove("valid-box");
-            input.classList.add("invalid-box");
-            document.getElementById(id + "-error").textContent = "⚠️ This field is required.";
-          } else {
-            input.classList.remove("invalid-box");
-            input.classList.add("valid-box");
-            document.getElementById(id + "-error").textContent = "";
-          }
-        });
-      });
-
-      //server side validation
+  <script>  
       document.getElementById("loginForm").addEventListener("submit", function(e) {
         e.preventDefault();
-
-        let valid = true;
-
-
-        fields.forEach(id => {
-          const input = document.getElementById(id);
-          if (input.value.trim() === "") {
-            input.classList.add("invalid-box");
-            document.getElementById(id + "-error").textContent = "This field is required.";
-            valid = false;
-          }
-        });
-
-        const username = document.getElementById("username").value.replaceAll(' ', '').trim();
-        const password = document.getElementById("password").value.trim();
-
-        // Username validation
-        if (username && username.length < 4) {
-          document.getElementById("username-error").textContent = "Username must be at least 4 characters";
-          document.getElementById("username").classList.add("invalid-box");
-          valid = false;
-        }
-
-        // Password validation
-        if (password && password.length < 6) {
-          document.getElementById("password-error").textContent = "Password must be at least 6 characters.";
-          document.getElementById("password").classList.add("invalid-box");
-          valid = false;
-        }
-
-        if (!valid) return;
-
-        // Success
         window.location.href = "dashboard.php";
       });
-
-
-
   </script>
 </body>
 </html>
