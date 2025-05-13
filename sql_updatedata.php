@@ -2,13 +2,13 @@
 
 include('includes/db.php');
 
-$i_id = $_POST['tid'];
-$item = $_POST['item_name'];
-$item_price = $_POST['price'];
-$item_stock = $_POST['stock'];
+$u_id = $_POST['uid'];
+$full_name = $_POST['full_name'];
+$email = $_POST['email'];
+$username = $_POST['username'];
 
 
-$sql = "UPDATE items SET item_name = '{$item_name}', price = '{$item_price}',stock = '{$item_stock}' WHERE tid = {$i_id}";
+$sql = "UPDATE users SET full_name = '{$full_name}', email = '{$email}',username = '{$username}' WHERE uid = {$u_id}";
 $result = mysqli_query($conn, $sql) or die("Check Query Unsuccessful");
 
 if ($result) {
