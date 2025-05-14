@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_GET['action'])){
+  session_unset();
+  session_destroy();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,8 +42,8 @@
           <img src="img/logo.png" alt="POS Logo" class="img-fluid rounded-circle mb-3" style="width: 120px;">
           <h2>Login</h2>
 
-          <form id="loginForm">
-            <select id="role" class="form-select mb-3" required>
+        <form id="loginForm" action="login_backend.php" method="POST">
+            <select id="role" name="role" class="form-select mb-3" >
               <option value="" disabled selected>---Select---</option>
 
               <?php
@@ -48,7 +55,7 @@
                 
                 if(mysqli_num_rows($result) > 0) {
                   while($rows = mysqli_fetch_assoc($result)) {
-                    echo "<option value='{$rows['type_name']}'>{$rows['type_name']}</option>";        
+                    echo "<option value='{$rows['tid']}'>{$rows['type_name']}</option>";        
                   }
                 }
             ?>
@@ -56,15 +63,21 @@
 
             <input type="text" class="form-control mb-3" 
                    id="username" name="username"  
-                   placeholder="Username" required>
+                   placeholder="Username" >
 
             <input type="password" class="form-control mb-3" 
                    id="password" name="password"  
-                   placeholder="Password" required>
-            
+                   placeholder="Password" >
+           
             <button type="submit" class="btn btn-gold fw-bold btn-scale text-black">Login</button>
           </form>
-          
+           <div>
+            <?php
+            if(isset($_SESSION['my_msg'])){ ?>
+           <span style="color:red;"><?= $_SESSION['my_msg']; ?></span>
+        <?php    }
+            ?>
+           </div>
         </div>
       </div>
   </div>
@@ -73,10 +86,10 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>  
-      document.getElementById("loginForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-        window.location.href = "dashboard.php";
-      });
+      // document.getElementById("loginForm").addEventListener("submit", function(e) {
+      //   e.preventDefault();
+      //   window.location.href = "dashboard.php";
+      // });
   </script>
 </body>
 </html>

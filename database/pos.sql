@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `description` text,
   PRIMARY KEY (`tid`),
   UNIQUE KEY `sku` (`sku`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Dumping data for table `items`
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   PRIMARY KEY (`uid`),
   UNIQUE KEY `email` (`email`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Dumping data for table `users`
@@ -86,9 +86,9 @@ INSERT INTO `users` (`uid`, `full_name`, `email`, `username`, `u_password`, `u_r
 DROP TABLE IF EXISTS `user_type`;
 CREATE TABLE IF NOT EXISTS `user_type` (
   `tid` int NOT NULL AUTO_INCREMENT,
-  `type_name` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `type_name` varchar(15) CHARACTER SET utf8mb4  NOT NULL,
   PRIMARY KEY (`tid`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 ;
 
 --
 -- Dumping data for table `user_type`
