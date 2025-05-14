@@ -19,7 +19,7 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end bg-black golden-shadow border-0" aria-labelledby="accountDropdown">
                     <li><a class="dropdown-item text-warning" href="#">Account Settings</a></li>
-                    <li><a class="dropdown-item text-danger" href="index.php">Logout</a></li>
+                    <li><a class="dropdown-item text-danger" href="index.php?action=logout">Logout</a></li>
                 </ul>
             </div>
         </div>

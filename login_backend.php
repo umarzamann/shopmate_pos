@@ -25,6 +25,7 @@ if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_assoc($result);
     $_SESSION['user_id'] = $row['uid'];
     $_SESSION['email'] = $row['email'];
+    $_SESSION['username'] = $row['username'];
     $_SESSION['user_role'] = $row['u_role'];
     $_SESSION['full_name'] = $row['full_name'];
      $_SESSION['type_name'] = $row['type_name'];
