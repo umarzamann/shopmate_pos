@@ -16,13 +16,16 @@ session_start();
         <li class="p-2"><a class="text-decoration-none text-warning  d-block px-2 py-1 rounded hover-bg-light" href="inventory_view.php">
            <i class="fas fa-boxes me-2"></i>Inventory</a></li>
 <?php
-// if($_SESSION['user_id'] != 2){
+if($_SESSION['user_id'] != 2 && $_SESSION['user_id'] != 3){
 ?>
         <li class="p-2">
             <a class="text-warning text-decoration-none d-block px-2 py-1 rounded hover-bg-light" href="view_users.php">
                 <i class="fas fa-users-cog me-2"></i>Manage Users</a>
         </li>
-        <?php // } ?>
+        <?php } ?>
+<?php
+    if($_SESSION['user_id'] != 2 && $_SESSION['user_id'] != 3){
+    ?>        
         <li class="dropdown p-2">
             <a class="dropdown-arrow-right dropdown-toggle text-warning text-decoration-none" href="#" data-bs-toggle="dropdown">
                 Admin Panel
@@ -33,6 +36,7 @@ session_start();
                 <li><a class="dropdown-item text-warning" href="#">Manage Receipts</a></li>
             </ul>
         </li>
+   <?php } ?>        
         <li class="dropdown p-2">
             <a class="dropdown-arrow-right dropdown-toggle text-warning text-decoration-none" href="#" data-bs-toggle="dropdown">Billing</a>
             <ul class="dropdown-menu bg-black golden-shadow border-0">
