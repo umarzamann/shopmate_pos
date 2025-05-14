@@ -62,8 +62,8 @@ if(isset($_GET['action'])){
               </select>
 
             <input type="text" class="form-control mb-3" 
-                   id="username" name="username"  
-                   placeholder="Username" >
+                   id="email" name="email"  
+                   placeholder="email@address.com" >
 
             <input type="password" class="form-control mb-3" 
                    id="password" name="password"  
