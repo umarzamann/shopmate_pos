@@ -14,7 +14,7 @@
         });
 
         $('#userProfile').click(function() {
-            alert("User Profile Clicked");
+             window.location.href = 'user_profile.php';
         });
 
         $('#supplierCard').click(function() {

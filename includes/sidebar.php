@@ -1,5 +1,8 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 ?>
 <div class="sidebar bg-black text-warning vh-100 p-3">
     <div class="db-logo d-flex align-items-center gap-3">
