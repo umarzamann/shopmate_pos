@@ -27,7 +27,7 @@ if($_SESSION['user_id'] != 2 && $_SESSION['user_id'] != 3){
         </li>
         <?php } ?>
 <?php
-    if($_SESSION['user_id'] != 2 && $_SESSION['user_id'] != 3){
+    if($_SESSION['user_id'] == 1){
     ?>        
         <li class="dropdown p-2">
             <a class="dropdown-arrow-right dropdown-toggle text-warning text-decoration-none" href="#" data-bs-toggle="dropdown">
