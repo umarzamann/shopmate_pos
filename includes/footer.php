@@ -130,6 +130,27 @@
         });
     });
 
+    $("#updateStock").submit(function (e) {
+        e.preventDefault();
+        $.ajax({
+            url: "inventory_stockUpdate_sql.php",
+            type: "POST",
+            data: $(this).serialize(),
+            success: function (response) {
+                if (response.trim() === "success") {
+                    showToast("Stock updated successfully!");
+                    setTimeout(function() {
+                        window.location.href = "inventory_view.php";
+                    }, 2000);
+                } else {
+                    showToast(response);
+                }
+            },
+            error: function () {
+                showToast('Something went wrong');
+            }
+        });
+    });
 
 
     function confirmDeletion(user) {

@@ -38,7 +38,12 @@
               <td><?php echo $row['item_name'] ?></td>
               <td><?php echo $row['sku'] ?></td>
               <td><?php echo $row['price'] ?></td>
-              <td><?php echo $row['stock'] ?></td>
+              <td>
+                <div class="d-flex text-align-center justify-content-center gap-3">  
+                  <span><?php echo $row['stock'] ?> </span>
+                  <a class="btn btn-secondary btn-sm d-flex text-align-center justify-content-center px-3 btn-scale" style="width: 24px; height: 24px; padding:0;" href='inventory_stockUpdate.php?tid=<?php echo $row['tid']; ?>' title="Update Stock"><i class="bi bi-plus-circle"></i></a>
+                </div>  
+              </td>
               <td><?php echo $row['description'] ?></td>
               <td>
                 <div class="d-flex justify-content-center gap-2">
